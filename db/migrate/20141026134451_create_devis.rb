@@ -1,7 +1,8 @@
 class CreateDevis < ActiveRecord::Migration
   def change
-      add_column :devis, :name, :string
-      add_column :devis, :plan_url, :string
+    create_table :devis do |t|
+      t.string :name
+      t.string :plan_url
 
       t.timestamps
     end
