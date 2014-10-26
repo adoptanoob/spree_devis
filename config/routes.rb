@@ -1,3 +1,4 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+  resources :devis
+  root to: 'devis#index'
 end

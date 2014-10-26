@@ -1,0 +1,9 @@
+<h1><%= @devi.name %></h1>
+
+<p><%= image_tag @devi.plan_url %></p>
+
+<p>
+  <%= link_to "Edit", edit_devi_path(@devi) %> |
+  <%= link_to "Destroy", @devi, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Back to Devis", devis_path %>
+</p>
