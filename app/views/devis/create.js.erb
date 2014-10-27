@@ -1,5 +1,0 @@
-<% if @devi.new_record? %>
-  alert("Failed to upload devi: <%= j @devi.errors.full_messages.join(', ').html_safe %>");
-<% else %>
-  $("#devis").append("<%= j render(@devi) %>");
-<% end %>

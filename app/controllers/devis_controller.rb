@@ -1,42 +1,24 @@
 class DevisController < ApplicationController
   def index
-    @devis = Devi.all
-  end
-
-  def show
-    @devi = Devi.find(params[:id])
   end
 
   def new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
     @devi = Devi.new
   end
 
+  def show
+  end
+
   def create
-    @devi = Devi.create(devi_params)
   end
 
   def edit
-    @devi = Devi.find(params[:id])
   end
 
   def update
-    @devi = Devi.find(params[:id])
-    if @devi.update_attributes(devi_params)
-      redirect_to devis_url, notice: 'Devi was successfully created'
-    else
-      render :edit 
-    end
   end
 
-  def destroy
-    @devi = Devi.find(params[:id])
-    @devi.destroy
-    redirect_to devis_url, notice: 'Devi was successfully deleted'
+  def detroy
   end
-
-  private
-    def devi_params
-      params.require(:devi).permit(:plan_url, :name)
-      
-    end
 end

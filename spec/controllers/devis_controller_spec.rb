@@ -9,16 +9,16 @@ RSpec.describe DevisController, :type => :controller do
     end
   end
 
-  describe "GET show" do
+  describe "GET new" do
     it "returns http success" do
-      get :show
+      get :new
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET new" do
+  describe "GET show" do
     it "returns http success" do
-      get :new
+      get :show
       expect(response).to have_http_status(:success)
     end
   end
@@ -40,6 +40,13 @@ RSpec.describe DevisController, :type => :controller do
   describe "GET update" do
     it "returns http success" do
       get :update
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET detroy" do
+    it "returns http success" do
+      get :detroy
       expect(response).to have_http_status(:success)
     end
   end
