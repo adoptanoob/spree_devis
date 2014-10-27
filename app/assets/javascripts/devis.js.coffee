@@ -1,5 +1,11 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+//= require jquery
+//= require jquery_ujs
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require_tree .
+
 jQuery ->
   $('#fileupload').fileupload
     add: (e, data) ->
