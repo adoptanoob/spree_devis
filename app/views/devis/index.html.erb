@@ -1,2 +1,4 @@
-<h1>Devis#index</h1>
-<p>Find me in app/views/devis/index.html.erb</p>
+<h2>Index Page</h2>
+<% @devis.each do |devi| %>
+<%= devi.name  %>
+<% end %>
