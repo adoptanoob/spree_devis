@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 gem 'aws-sdk'
 gem 'spree', github: 'spree/spree', branch: '2-3-stable'
 # gem 'paperclip'
