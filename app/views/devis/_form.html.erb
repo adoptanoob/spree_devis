@@ -1,7 +1,7 @@
 <%= form_for(@devi, url: "#{@s3_direct_post.url}",  hmtl: { id: "fileupload", multipart: true}) do |f| %>
   <div class="field">
   <%= f.text_field :name %>
-  <%= f.file_field :plan_url %>
+  <%= f.file_field :plan_url, multiple: true %>
   </div>
   <%= f.submit %>
 <% end %>
