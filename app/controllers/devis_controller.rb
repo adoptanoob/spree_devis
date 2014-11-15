@@ -1,5 +1,6 @@
 class DevisController < ApplicationController
   def index
+    @devis = Devi.all
   end
 
   def new
