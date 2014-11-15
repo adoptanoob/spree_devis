@@ -16,9 +16,9 @@ class DevisController < ApplicationController
     @devi = Devi.new(devi_params)
 
       if @devi.save
-        format.html { redirect_to @devi, notice: 'The devi was successfully created.' }
+        redirect_to @devi, notice: 'The devi was successfully created.'
       else
-        format.html { render :new }
+        render :new
       end
   end
 
