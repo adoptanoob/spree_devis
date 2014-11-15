@@ -1,6 +1,7 @@
-<%= s3_uploader_form callback_url: devi_url,
+<%= s3_uploader_form callback_url: devis_url,
                      callback_method: "POST", 
-                     callback_param: "devi[plan_url]", 
+                     callback_param: "devi[plan_url]",
+                     class: "upload-form", 
                      id: "s3-uploader" do %>
   <%= file_field_tag :file, multiple: true %>
 <% end %>
