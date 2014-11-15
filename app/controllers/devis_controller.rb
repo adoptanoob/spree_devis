@@ -11,7 +11,8 @@ class DevisController < ApplicationController
   end
 
   def create
-    @devi = Devi.new(devi_params)
+    @devi = Devi.create(devi_params)
+    
 
       if @devi.save
         redirect_to @devi, notice: 'The devi was successfully created.'
