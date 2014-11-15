@@ -1,4 +1,5 @@
 class Devi < ActiveRecord::Base
+  attr_accessor :plan_url
   before_create :default_name
 
   def default_name
