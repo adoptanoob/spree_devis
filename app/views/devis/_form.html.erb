@@ -1,10 +1,19 @@
-<%= s3_uploader_form callback_url: devis_url,
+<div id="upload_form_wrapper">
+  <div id="file_field_wrapper">
+    <div class="upload_document_button">
+      <span>Uploader un document</span>
+      <%= s3_uploader_form callback_url: "/devis",
                      callback_method: "POST", 
-                     callback_param: "devi[plan_url]",
+                     callback_param: "devis[plan_url",
+                     key: "uploads/#{SecureRandom.hex}/${filename}"
                      class: "upload-form", 
                      id: "s3-uploader" do %>
-  <%= file_field_tag :file, multiple: true %>
-<% end %>
+        <%= file_field_tag :file, multiple: true %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 
 <script id="template-upload" type="text/x-tmpl">
 <div id="file-{%=o.unique_id%}" class="upload">

@@ -11,13 +11,20 @@ class DevisController < ApplicationController
   end
 
   def create
-    @devi = Devi.create(devi_params)
-    
+    s3_path = params[:url]
+    doc_name = params[:name]
+    @devi = Devi.new(:url => s3_path, :name => doc_name)
 
       if @devi.save
-        redirect_to @devi, notice: 'The devi was successfully created.'
+        render :json => {
+          :success => true,
+          :devi => @devi
+        }
       else
-        render :new
+        render :json {
+          :success => false,
+          :message => "Une erreur est survenue,VAB"
+        }
       end
   end
 

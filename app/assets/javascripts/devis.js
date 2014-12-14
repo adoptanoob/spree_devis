@@ -5,23 +5,22 @@
 //= require_tree .
 
 $(function() {
-  $('#s3-uploader').S3Uploader(
-    {
-      remove_completed_progress_bar: false,
-      progress_bar_target: $('#uploads_container'),
-      before_add: function(file) {
-        if (file.size > 30485760) {
-          alert('Maximum file size is 30 MB');
-          return false;
-        } else {
-          return true;
-        }
-      }
-    }
-  );
-
-  // error handling
-  $('#s3-uploader').bind('s3_upload_failed', function(e, content) {
-    return alert(content.filename + ' failed to upload.');
+  $('.directUpload').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    var form         = $(fileInput.parents('form:first'));
+    var submitButton = form.find('input[type="submit"]');
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+    fileInput.fileupload({
+      fileInput:       fileInput,
+      url:             '<%= @s3_direct_post.url %>',
+      type:            'POST',
+      autoUpload:       true,
+      formData:         <%= @s3_direct_post.fields.to_json.html_safe %>,
+      paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+      dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+      replaceFileInput: false
+    });
   });
 });
